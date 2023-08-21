@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalM
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import LoraConfig, PeftConfig, PeftModel, get_peft_model
 
 class ModelConfig:
@@ -11,7 +11,7 @@ class ModelConfig:
         return tokenizer
     
     def load_pretrained_model(self, model_checkpoint, device_map):
-        model = AutoModelForCausalM.from_pretrained(model_checkpoint)
+        model = AutoModelForCausalLM.from_pretrained(model_checkpoint)
         return model
     
     def add_lora(self, model, r: int, lora_alpha: int, lora_dropout: float):
